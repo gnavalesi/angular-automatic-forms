@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-automatic-form/angular-automatic-form.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+
+    <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="application/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="application/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="application/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script type="application/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type="application/javascript" src="bower_components/underscore/underscore-min.js"></script>
+
+    <script type="application/javascript" src="bower_components/angular-automatic-form/angular-automatic-form.js"></script>
+
+    <script type="application/javascript" src="app.js"></script>
+</head>
+<body ng-controller="ExampleController">
+    <div style="width: 1000px; margin: 30px auto;">
+        <automatic-form ng-model="formModel" ng-object="formObject"></automatic-form>
+    </div>
+</body>
+</html>

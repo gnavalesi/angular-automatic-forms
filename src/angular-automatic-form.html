@@ -1,0 +1,71 @@
+<form>
+    <div class="form-group"
+         ng-repeat="field in fields"
+         ng-switch="field.type">
+
+        <label>{{ field.label }}</label>
+
+        <div ng-switch-when="text">
+            <input type="text" class="form-control"
+                   ng-model="object[field.id]"
+                   ng-required="field.required"
+                   ng-disabled="field.disabled" />
+        </div>
+
+        <div ng-switch-when="number">
+            <input type="number" class="form-control"
+                   ng-model="object[field.id]"
+                   ng-required="field.required"
+                   ng-disabled="field.disabled" />
+        </div>
+
+        <div ng-switch-when="checkbox">
+            <div ng-if="!field.options"
+                 class="checkbox">
+                <label>
+                    <input type="checkbox" class="form-control"
+                           ng-model="object[field.id]"
+                           ng-disabled="field.disabled"/>
+                </label>
+            </div>
+            <div ng-repeat="(value, label) in field.options"
+                 class="checkbox">
+                <label>
+                    <input type="checkbox" class="form-control"
+                           ng-model="object[field.id]"
+                           ng-checked="object[field.id].indexOf(value) > -1" ng-value="value"
+                           ng-disabled="field.disabled"/>
+                    {{ label }}
+                </label>
+            </div>
+        </div>
+
+        <div ng-switch-when="select">
+            <select class="form-control"
+                    ng-model="object[field.id]"
+                    ng-required="field.required"
+                    ng-disabled="field.disabled">
+                <option ng-repeat="(value, label) in field.options" value="{{ value }}">{{ label }}</option>
+            </select>
+        </div>
+
+        <div ng-switch-when="radio">
+            <div class="radio"
+                 ng-repeat="(value, label) in field.options">
+                <label>
+                    <input type="radio" class="form-control"
+                           ng-model="object[field.id]"
+                           ng-value="value"
+                           ng-disabled="field.disabled" />
+                    {{ label }}
+                </label>
+            </div>
+        </div>
+
+        <div ng-switch-when="image">
+            <div ng-if="object[field.id]"
+            style="width: {{ field.width }}px; height: {{ field.height }}px; background-image: url('{{ object[field.id] }}');"></div>
+            <input type="file" class="form-control" />
+        </div>
+    </div>
+</form>

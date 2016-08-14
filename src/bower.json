@@ -1,0 +1,12 @@
+{
+  "name": "angular-automatic-form",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "underscore": "^1.8.3"
+  }
+}
