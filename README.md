@@ -1,7 +1,38 @@
-# Node web template
+## Field Object
+```
+{
+    'id': <string>,
+    'label': [<string>],
+    'type': <object or string>,
+    'required': [<boolean>],
+    'disabled': [<boolean>]
+}
+```
 
-## Available commands
+## Available Types
 
-* ```gulp run```: Starts a server on port 3000 running the application
-* ```gulp dist```: Generates a zip package in the dist folder with the content of the application
-* ```gulp dev```: Starts a server on port 3000 running the application with livereload enabled
+### text
+
+``` 'text' ``` or an object like:
+
+```
+{
+    name: 'text'
+}
+```
+
+### number
+
+``` 'number' ``` or an object like:
+
+```
+{
+    name: 'number'
+}
+```
+### date
+### checkbox
+### select
+### radio
+### file
+### image

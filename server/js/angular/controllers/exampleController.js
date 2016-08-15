@@ -3,7 +3,8 @@
 
 function ExampleController($scope) {
 	$scope.formModel = {
-		fields: [{
+		fields: [
+			{
 			'id': '_id',
 			'label': 'ID',
 			'type': 'text',
@@ -38,7 +39,10 @@ function ExampleController($scope) {
 		}, {
 			'id': 'age',
 			'label': 'Age',
-			'type': 'number',
+			'type': {
+				'name': 'number',
+				'min': 0
+			},
 			'required': false
 		}, {
 			'id': 'eyeColor',
@@ -52,6 +56,10 @@ function ExampleController($scope) {
 				}
 			}
 		}, {
+			'id': 'name',
+			'label': 'Name',
+			'type': 'text'
+		}, {
 			'id': 'gender',
 			'type': {
 				'name': 'radio',
@@ -62,22 +70,35 @@ function ExampleController($scope) {
 				}
 			}
 		}, {
+			'id': 'company',
+			'label': 'Company',
+			'type': 'text'
+		}, {
+			'id': 'email',
+			'label': 'E-mail',
+			'type': 'text'
+		}
+			/*, {
 			'id': 'tags',
 			'type': {
 				'name': 'checkbox',
-				'options': {
-					'ex': 'ex',
-					'tempor': 'tempor',
-					'occaecat': 'occaecat',
-					'reprehenderit': 'reprehenderit',
-					'est': 'est',
-					'ut': 'ut',
-					'fugiat': 'fugiat',
-					'qwrad': 'qwrad',
-					'nvdfsg': 'nvdfsg'
-				}
+				'options': [
+					'ex',
+					'tempor',
+					'occaecat',
+					'reprehenderit',
+					'est',
+					'ut',
+					'fugiat',
+					'qwrad',
+					'nvdfsg'
+				]
 			}
-		}]
+		}*/
+		],
+		onSave: function(object, promise) {
+			promise.resolve(object);
+		}
 	};
 
 	$scope.formObject = {

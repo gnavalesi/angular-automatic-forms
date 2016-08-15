@@ -1,4 +1,4 @@
-<form>
+<form ng-submit="submit()">
     <div class="form-group"
          ng-repeat="field in fields"
          ng-switch="field.type">
@@ -9,14 +9,15 @@
             <input type="text" class="form-control"
                    ng-model="object[field.id]"
                    ng-required="field.required"
-                   ng-disabled="field.disabled" />
+                   ng-disabled="field.disabled"/>
         </div>
 
         <div ng-switch-when="number">
             <input type="number" class="form-control"
                    ng-model="object[field.id]"
                    ng-required="field.required"
-                   ng-disabled="field.disabled" />
+                   ng-disabled="field.disabled"
+                   min="{{ field.min }}"/>
         </div>
 
         <div ng-switch-when="checkbox">
@@ -32,8 +33,7 @@
                  class="checkbox">
                 <label>
                     <input type="checkbox" class="form-control"
-                           ng-model="object[field.id]"
-                           ng-checked="object[field.id].indexOf(value) > -1" ng-value="value"
+                           ng-model="object[field.id][value]"
                            ng-disabled="field.disabled"/>
                     {{ label }}
                 </label>
@@ -56,7 +56,7 @@
                     <input type="radio" class="form-control"
                            ng-model="object[field.id]"
                            ng-value="value"
-                           ng-disabled="field.disabled" />
+                           ng-disabled="field.disabled"/>
                     {{ label }}
                 </label>
             </div>
@@ -64,8 +64,10 @@
 
         <div ng-switch-when="image">
             <div ng-if="object[field.id]"
-            style="width: {{ field.width }}px; height: {{ field.height }}px; background-image: url('{{ object[field.id] }}');"></div>
-            <input type="file" class="form-control" />
+                 style="width: {{ field.width }}px; height: {{ field.height }}px; background-image: url('{{ object[field.id] }}');"></div>
+            <input type="file" class="form-control"/>
         </div>
     </div>
+
+    <button type="submit">Submit</button>
 </form>
